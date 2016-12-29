@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/encodings.xml
+.idea/koa2-typescript-startkit.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
