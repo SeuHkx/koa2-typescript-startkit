@@ -1,8 +1,8 @@
-### Koa2 Typescript startkit
+## Koa2 Typescript startkit
+---
+> This is a simple quick Koa2 boilerplate with TypeScript
 
-> This is a simple quick boilerplate instructing how configure TypeScript to work with Koa2
-
-#### Quick Start
+### Quick Start
 
 
    
