@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "koa2 typescript startkit",
   "scripts": {
-    "start":"yarn install && yarn run dev",
-    "dev" : "node_modules/.bin/nodemon -w ./app/ -x node_modules/.bin/ts-node ./app/app.ts && yarn run server",
-    "server" : "node_modules/.bin/gulp server"
+    "start":"yarn install",
+    "dev" : "./node_modules/.bin/nodemon -w ./app/ -x ./node_modules/.bin/ts-node ./app/app.ts && npm run server",
+    "server" : "./node_modules/.bin/gulp server"
   },
   "repository": {
     "url": "git+https://github.com/SeuHkx/koa2-typescript-startkit.git",

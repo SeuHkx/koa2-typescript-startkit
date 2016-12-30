@@ -7,7 +7,7 @@
 	1. yarn install
 >  add all need dependencies.
 	
-	2. yarn run dev
+	2. npm run dev
 	
 
    
