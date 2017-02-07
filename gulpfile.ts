@@ -5,8 +5,14 @@
 import * as gulp from 'gulp';
 import * as gulpTS from 'gulp-typescript';
 import * as browserSync from 'browser-sync';
-gulp.task('g-serverCompile',()=>{
-	return gulp.src('./app/**/*.ts')
+import * as chalk from 'chalk';
+import deploy from './app/config/config';
+
+const LOCALHOST = `localhost:${deploy.port}`;
+
+gulp.task('compileTS', () => {
+	return gulp
+		.src('./app/**/*.ts')
 		.pipe(gulpTS({
 			target: 'ES6',
 			module: 'commonjs',
@@ -19,9 +25,11 @@ gulp.task('g-serverCompile',()=>{
 
 gulp.task('server',()=>{
 	browserSync.init({
-		proxy : 'localhost:3333',
-		port  : 3334
+		proxy :  LOCALHOST,
+		port  :  deploy.port + 1
 	});
-	gulp.watch('./app/views/**/*.pug',()=>{}).on('change',browserSync.reload);
+	gulp.watch('./app/views/**/*.pug',(event)=>{
+		console.log(chalk.white.bgMagenta.bold(event.path));
+	}).on('change',browserSync.reload);
 });
 
