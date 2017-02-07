@@ -5,8 +5,7 @@
 import * as gulp from 'gulp';
 import * as gulpTS from 'gulp-typescript';
 import * as browserSync from 'browser-sync';
-
-gulp.task('g-server',()=>{
+gulp.task('g-serverCompile',()=>{
 	return gulp.src('./app/**/*.ts')
 		.pipe(gulpTS({
 			target: 'ES6',
@@ -15,7 +14,7 @@ gulp.task('g-server',()=>{
 			sourceMap: true,
 			noImplicitAny: true
 		}))
-		.pipe(gulp.dest('./app/build/'))
+		.pipe(gulp.dest('./app/build/'));
 });
 
 gulp.task('server',()=>{
@@ -25,3 +24,4 @@ gulp.task('server',()=>{
 	});
 	gulp.watch('./app/views/**/*.pug',()=>{}).on('change',browserSync.reload);
 });
+
