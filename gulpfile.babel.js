@@ -7,6 +7,7 @@ import gulpTS from 'gulp-typescript';
 import browserSync from 'browser-sync';
 import chalk from 'chalk';
 import path from 'path';
+import config from './config.json';
 
 const DEPLOY = {
 	PORT      :  3333,
@@ -14,9 +15,10 @@ const DEPLOY = {
 		return `localhost:${this.PORT}`;
 	}
 };
+
 gulp.task('compile-ts', () => {
 	return gulp
-		.src('./app/**/*.ts')
+		.src(config.compileTsPath)
 		.pipe(gulpTS({
 			target: 'ES6',
 			module: 'commonjs',
@@ -24,7 +26,7 @@ gulp.task('compile-ts', () => {
 			sourceMap: true,
 			noImplicitAny: true
 		}))
-		.pipe(gulp.dest('./app/build/'));
+		.pipe(gulp.dest(config.buildTsPath));
 });
 
 gulp.task('reload',()=>{
@@ -32,7 +34,7 @@ gulp.task('reload',()=>{
 		proxy :  DEPLOY.LOCALHOST(),
 		port  :  DEPLOY.PORT + 1
 	});
-	gulp.watch('./app/views/**/*.pug',(event)=>{
+	gulp.watch(config.watchViewTemplate,(event)=>{
 		console.log(`reload views pug : ${chalk.white.bgMagenta.bold(path.basename(event.path))}`);
 	}).on('change',browserSync.reload);
 });
