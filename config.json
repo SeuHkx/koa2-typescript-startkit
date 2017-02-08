@@ -1,0 +1,5 @@
+{
+  "compileTsPath":"./app/**/*.ts",
+  "buildTsPath":"./app/build/",
+  "watchViewTemplate":"./app/views/**/*.pug"
+}
